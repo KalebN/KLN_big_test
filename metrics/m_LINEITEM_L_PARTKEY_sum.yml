@@ -1,0 +1,6 @@
+unique_name: m_LINEITEM_L_PARTKEY_sum
+object_type: metric
+label: L Pa Rate Key
+calculation_method: sum
+column: L_PARTKEY
+dataset: LINEITEM

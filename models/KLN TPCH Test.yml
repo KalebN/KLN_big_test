@@ -1,12 +1,42 @@
 unique_name: KLN TPCH Test
 object_type: model
 label: KLN TPCH Test
-metrics: []
+metrics:
+  - unique_name: m_LINEITEM_L_PARTKEY_sum
+  - unique_name: m_LINEITEM_L_QUANTITY_sum
 relationships:
-  - unique_name: LINEITEM_empty_dimension
+  - unique_name: LINEITEM_L_PARTKEY_to_PART_dimension_PART_dimension Level
     from:
       dataset: LINEITEM
-      join_columns: []
+      join_columns:
+        - L_PARTKEY
     to:
-      dimension: ''
-      level: ''
+      dimension: PART_dimension
+      level: PART_dimension Level
+  - unique_name: LINEITEM_L_SHIPDATE_to_Date Dimension_Date Dimension Level
+    from:
+      dataset: LINEITEM
+      join_columns:
+        - L_SHIPDATE
+    role_play: Ship {0}
+    to:
+      dimension: Date Dimension
+      level: Date Dimension Level
+  - unique_name: LINEITEM_L_COMMITDATE_to_Date Dimension_Date Dimension Level
+    from:
+      dataset: LINEITEM
+      join_columns:
+        - L_COMMITDATE
+    role_play: Commit {0}
+    to:
+      dimension: Date Dimension
+      level: Date Dimension Level
+  - unique_name: LINEITEM_L_RECEIPTDATE_to_Date Dimension_Date Dimension Level
+    from:
+      dataset: LINEITEM
+      join_columns:
+        - L_RECEIPTDATE
+    role_play: Receipt {0}
+    to:
+      dimension: Date Dimension
+      level: Date Dimension Level
