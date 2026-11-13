@@ -3,10 +3,11 @@ object_type: model
 label: KLN TPCH 1
 metrics: []
 relationships:
-  - unique_name: LINEITEM_empty_dimension
+  - unique_name: LINEITEM_L_PARTKEY_to_PART_dimension_PART_dimension Level
     from:
       dataset: LINEITEM
-      join_columns: []
+      join_columns:
+        - L_PARTKEY
     to:
-      dimension: ''
-      level: ''
+      dimension: PART_dimension
+      level: PART_dimension Level
